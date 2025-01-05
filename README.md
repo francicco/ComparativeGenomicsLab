@@ -20,8 +20,8 @@ Cicconardi F, Milanetti E, Pinheiro de Castro ÉC, Mazo-Vargas A, Van Belleghem
 The tutorial is divided into three sections
 
 1. [Part I: Whole Genome Alignment](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartI/WholeGenomeAlignment.md)
-2. [Part II: HAL tools and Alignment Manipulation](https://github.com/francicco/ComparativeGenomicsLab/tree/main/PartII)
-3. [Part III: Identification of Conserved Regions](https://github.com/francicco/ComparativeGenomicsLab/blob/main/1.Mapping/1.MappingStep.md)
+2. [Part II: HAL tools and Alignment Manipulation](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartII/AlignmentManipulation.md)
+3. [Part III: Identification of Conserved Regions]()
 
 All data is available at this [link]([https://drive.google.com/drive/folders/1IreMRHaOa1kvOomyjoEm8xFw1fmOR-oK?usp=drive_link](https://uob-my.sharepoint.com/:f:/g/personal/tk19812_bristol_ac_uk/El4csr5H5jpHvVBhL3OVNZIB63COCfld3kpyB3FHzeAR_g?e=eAf5d3)).
 

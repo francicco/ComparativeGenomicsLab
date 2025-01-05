@@ -23,6 +23,6 @@ The tutorial is divided into three sections
 2. [Part II: HAL tools and Alignment Manipulation](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartII/AlignmentManipulation.md)
 3. [Part III: Identification of Conserved Regions](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartIII/IndentificationConservedElements.md)
 
-All data is available at this [link]([https://drive.google.com/drive/folders/1IreMRHaOa1kvOomyjoEm8xFw1fmOR-oK?usp=drive_link](https://uob-my.sharepoint.com/:f:/g/personal/tk19812_bristol_ac_uk/El4csr5H5jpHvVBhL3OVNZIB63COCfld3kpyB3FHzeAR_g?e=eAf5d3)).
+## All data is available at this [link](https://uob-my.sharepoint.com/:f:/g/personal/tk19812_bristol_ac_uk/El4csr5H5jpHvVBhL3OVNZIB63COCfld3kpyB3FHzeAR_g?e=eAf5d3).
 
 ## I hope this will be useful, Have fun!

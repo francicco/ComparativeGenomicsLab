@@ -14,7 +14,7 @@ Below is a breakdown of the required dependencies.
 - [IGV](https://software.broadinstitute.org/software/igv/) or any other genome browser you like, to have a look at all the tracks you will generate.
 
 ![Phylogeny](https://github.com/user-attachments/assets/1c6becb6-bd86-4fcf-91e6-ab15b6f078d7)
-Cicconardi F, Milanetti E, Pinheiro de Castro ÉC, Mazo-Vargas A, Van Belleghem SM, Ruggieri AA, Rastas P, Hanly J, Evans E, Jiggins CD, McMillan OW, Papa R, di Marino D, Martin A, Montgomery SH (2023). “[Evolutionary dynamics of genome size and content during the adaptive radiation of Heliconiini butterflies](https://www.nature.com/articles/s41467-023-41412-5)”. Nat. Comm.
+*Figure. The dated species phylogeny built from the concatenated single-copy orthologous groups (scOGs) from all sequenced Heliconiinae and outgroups, using a combination of Maximum Likelihood and Bayesian Inference. The branch color represents the number of substitutions per site per 100 Mya of that specific branch. Species names in bold indicate the species with chromosome- or sub-chromosome-level assemblies, asterisks indicate genomes assembled in this study, C curated assemblies; ii) genome assembly size, in red the TE fractions; iii) BUSCO profiles for each species. Blue indicates the fraction of complete single-copy genes; iv) bar plots show total gene counts partitioned according to their orthology profiles, from Nymphalids to lineage-restricted and clade-specific genes [Cicconardi et al. (2023)](https://www.nature.com/articles/s41467-023-41412-5).*
 
 ## The tutorial
 The tutorial is divided into three sections

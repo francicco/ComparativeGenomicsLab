@@ -92,6 +92,11 @@ halAlignmentDepth --noAncestors HelicChr2.hal Hmel > Hmel.Cov.wig
 wigToBigWig Hmel.Cov.wig Hmel.Chr2.fasta.fai Hmel.Cov.bw
 ```
 
+NOTE: You may have notice that `wigToBigWig` requires the fasta index file. This file is a tab-delimited file which contains information of the fasta file, such as the lengths of sequences. You can easily generate it with `samtools`
+```bash
+samtools faidx Hmel.Chr2.fasta
+```
+
 4. Compute the coverage of only Heliconius species and convert the output
 ```bash
 halAlignmentDepth --rootGenome Heliconius --noAncestors HelicChr2.hal Hmel > Hmel.HelOnly.Cov.wig

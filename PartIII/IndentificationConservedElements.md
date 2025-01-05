@@ -118,18 +118,95 @@ Now load all the generated data (`Chr2.PhastConsScores.bw`|`Hmel.phyloP.wig`|`He
 If you examine the chromosome closely, you will notice that there is a significant amount of overlap between the conserved elements (CEs), phastCons scores, and PhyloP scores with coding regions. This is expected since coding exons are typically the most conserved regions of the genome. However, upon closer inspection, you will also find CEs within intergenic and intronic regions. In this particular case, these CEs span approximately 40 million years within the phylogenetic framework. It is important to note that most of these intergenic regions do not possess a valid open reading frame (ORF). Currently, it is unknown whether these regions represent functional elements such as enhancers or promoters. However, we can perform an assay for transposase-accessible chromatin (ATAC) to investigate whether there is an enrichment of chromatin accessibility with CEs. Indicating possible role as *cis*-regulatory elements (CREs).
 important "switches" or "control switches" that influence when and how genes are turned on or off and, therefore expressed.
 
-In this section, you can explore one possible application CE identification, checking if for example these regions correspond to promoters in your tissue of interest. With this goal, I have provided you with two annotations for ATAC peaks: one for *H. melpomene* (`melp_ros.MACS2.peaks.all.Chr2.counts`) and another for *H. erato demophoon* (dem_hyd.MACS2.peaks.all.Chr2.counts). The data was derived from the 5th instar heads and 5th instar, day 1, and day 2 pupal wings ([Ruggeri et al. 2022](https://genome.cshlp.org/content/32/10/1862.short)). The data contains the coordinates (start and end positions) of all ATAC-seq peaks plus the number of reads within those peaks (similar to gene expression counts in RNA-seq) for each sample/tissue.
+In this section, you can explore one possible application CE identification, checking for example if these regions correspond to promoters in your tissue of interest. With this goal, I have provided you with two annotations for ATAC peaks: one for *H. melpomene* (`melp_ros.MACS2.peaks.all.Chr2.counts`) and another for *H. erato demophoon* (dem_hyd.MACS2.peaks.all.Chr2.counts). The data was derived from the 5th instar heads and 5th instar, day 1, and day 2 pupal wings ([Ruggeri et al. 2022](https://genome.cshlp.org/content/32/10/1862.short)). The data contains the coordinates (start and end positions) of all ATAC-seq peaks plus the number of reads within those peaks (similar to gene expression counts in RNA-seq) for each sample/tissue.
 
 ![F5 large](https://github.com/user-attachments/assets/894bbd0e-f20e-47c0-a43f-170317e333f3)
 *Figure. Example intervals of the genome alignment of *H. charithonia* (pink), *H. erato* (blue), and *H. melpomene* (orange) with the alignment of lineage-specific genome sequences, transposable element (TE) annotations, and ATAC-seq profiles. The plots show an illustrative interval of the genome assembly near the gene chiffon (chif) and sloppy paired 2 (slp2). For more details look at [Ruggeri et al. 2022](https://genome.cshlp.org/content/32/10/1862.short).*
 
-Let's check how many CEs overlap with the ATAC peaks, meaning that correspond to open chromatin regions (putative *cis*-regulatory elements), most likely promoters. 
-In the first step, we need to Convert the ATAC peaks files into a valid bed file
+To determine if the CEs correspond to promoters in these tissues, we could examine whether any of the CEs overlap with open chromatin regions, which are likely putative cis-regulatory elements, such as promoters.
 
+1. In the first step, we need to prepare the data and convert the ATAC peaks files extracting peaks only relative to our chromosome of interest. We can easily do it with `grep`:
+```bash
+grep Hmel202001o melp_ros.MACS2.peaks.all.Chr2.counts > Hmel.Chr2.ATACpeaks.bed
+```
 
+2. Get the Conserved Non-Exonic Elements (CNEEs) and ATAC peaks that sit in intergenic regions [or in non-Exonic regions].
+To do that you need to break the problems into smaller ones using `bedtools intersect`.
+
+- Extract intergenic regions first:
+```bash
+grep -w gene Hmel.Chr2.annotation.gff3 | grep -v transcript | bedtools complement -i - -g Hmel.Chr2.fasta.fai > Hmel.IntergenicReg.bed
+```
+
+- Extract the ATAC peaks that are located in those regions...
+```bash
+bedtools intersect -u -wa -a Hmel.Chr2.ATACpeaks.bed -b Hmel.IntergenicReg.bed > Hmel.Chr2.ATACpeaks.InterGenic.bed
+```
+
+- ...and Do the same for intergenic CNEEs
+```bash
+bedtools intersect -u -wa -a HelicChr2.5b.Merged.mostcons.bed -b Hmel.IntergenicReg.bed > HelicChr2.5b.Merged.intergCEs.bed
+```
+
+3. Now check how many intergenic ATAC peaks overlap with CNEEs.
+```bash
+bedtools intersect -u -wb -a Hmel.Chr2.ATACpeaks.InterGenic.bed -b HelicChr2.5b.Merged.intergCEs.bed | wc -l
+```
+
+- What is their proportion?
+```
+Of the ~1292 intergenic ATAC peaks ~871 overlap with CEs, the ~67%
+```
+
+________________________________________________________________________________________________________________________________________________________________________________
+## Extra assignment
+
+Is this overlap significant in any way? That is, is there a significant enrichment in CNEEs where the chromatin is opened?
+
+### - How could you test if there is a significant enrichment in CEs?
+
+*Solution:*
+You could perform a permutation test by reshuffling the ATAC peaks *n* times to estimate the expected overlap under the null hypothesis (*H₀*), which assumes that chromatin accessibility is randomly distributed in intergenic regions. By generating a distribution of overlaps across these permutations, you can evaluate where the observed overlap falls. If the observed overlap is within the lowest 5% of the null distribution, it would indicate a *p*-value less than 0.05, suggesting significant enrichment. Alternatively, you could use a binomial test to assess the probability of observing such an overlap under *H₀*.
+ 
+`bedtools` have an implemented operator, `shuffle`, that randomly replaces the elements' coordinates of a bed file.
+
+- Have a look at it and see if you can come up with a configuration that suits our needs.
+- For each replica compute the overlap and store it in a file.
+- Plot the results and what is the enrichment, if there is one.
+
+*Solution:*
+```bash
+mkdir Permutation
+
+for REP in $(seq 1 1000); do
+  echo -e "Rep: $REP"
+  bedtools shuffle -excl Hmel.GeneRegions.bed -chrom -chromFirst -noOverlapping -i Hmel.Chr2.ATACpeaks.InterGenic.bed \
+    -g Hmel.Chr2.fasta.fai | bedtools sort -i - > Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed
+
+  Nline=`wc -l Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed | cut -f1 -d' '`
+  bedtools intersect -u -wa -a Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed -b HelicChr2.5b.Merged.mostcons.bed | wc -l | awk '{ print "'"$REP"'""\t"$0/"'"$Nline"'"}' >> Overlaps.dat
+done
+```
+
+```Rscript
+FracOvl <- read.table("Overlaps.dat", header=TRUE, sep="\t")
+summary(FracOvl$FracOvl)
+
+plot(density(FracOvl$FracOvl, adjust = 0.1))
+lines(density(FracOvl$FracOvl, adjust = 2, add = TRUE), col = 'green')
+
+x <- 871
+n <- 1292
+binom.test(x, n, p=0.5381)
+```
+
+You should get a plot similar to this:
+<img width="1251" alt="ExpectedDist" src="https://github.com/user-attachments/assets/07e0d7dc-b972-4084-b302-03635956a53b" />
 
 
 ________________________________________________________________________________________________________________________________________________________________________________
-Previous section: [Overview](https://github.com/francicco/ComparativeGenomicsLab/edit/main/README.md)
+[Overview](https://github.com/francicco/ComparativeGenomicsLab/edit/main/README.md)
+
 [Part I: Whole Genome Alignment](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartI/WholeGenomeAlignment.md)
+
 Previous section: [Part II: HAL tools and Alignment Manipulation](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartII/AlignmentManipulation.md)

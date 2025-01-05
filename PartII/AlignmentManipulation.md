@@ -27,7 +27,7 @@ halSummarizeMutations HelicChr2.hal [optional --maxNFraction]
 mv .HelicChr2.SummarizeMutations.csv HelicChr2.SummarizeMutations.csv
 ```
 
-You can also compute the alignment coverage using `halAlignmentDepth`, which returns the number of genomes aligned to a reference species of your choice. It will output data to the `Stdout` in wiggle format. You can redirect the output to a file and convert it into a compressed binary file (`BigWig` format) using `wigToBigWig` that can be easily visualized on a genome browser such as IGV.
+You can also compute the alignment coverage using `halAlignmentDepth`, which returns the number of genomes aligned to a reference species of your choice. It will output data to the `Stdout` in wiggle format. You can redirect the output to a file and convert it into a compressed binary file ([`BigWig` format](https://www.ensembl.org/info/website/upload/wig.html#:~:text=The%20WIG%20%28wiggle%29%20format%20is,use%20the%20BedGraph%20format%20instead.)) using `wigToBigWig` that can be easily visualized on a genome browser such as IGV.
 
 `halAlignmentDepth` has few options, if you execute it you'll see what these are:
 

@@ -129,4 +129,7 @@ In the first step, we need to Convert the ATAC peaks files into a valid bed file
 
 
 
-
+________________________________________________________________________________________________________________________________________________________________________________
+Previous section: [Overview](https://github.com/francicco/ComparativeGenomicsLab/edit/main/README.md)
+[Part I: Whole Genome Alignment](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartI/WholeGenomeAlignment.md)
+Previous section: [Part II: HAL tools and Alignment Manipulation](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartII/AlignmentManipulation.md)

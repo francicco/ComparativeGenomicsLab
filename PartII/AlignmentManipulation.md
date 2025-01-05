@@ -112,5 +112,5 @@ wigToBigWig Hmel.NonHelOnly.Cov.wig Hmel.Chr2.fasta.fai Hmel.NonHelOnly.Cov.bw
 6. Now load the file into IGV, can you spot any region of the chromosome that is more specific to Heliconius species?
    
 ________________________________________________________________________________________________________________________________________________________________________________
-Previous section: 
+Previous section: [Part I: Whole Genome Alignment](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartI/WholeGenomeAlignment.md)
 Next section: [Part III: Identification of Conserved Regions](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartIII/IndentificationConservedElements.md)

@@ -29,6 +29,59 @@ mv .HelicChr2.SummarizeMutations.csv HelicChr2.SummarizeMutations.csv
 
 You can also compute the alignment coverage using `halAlignmentDepth`, which returns the number of genomes aligned to a reference species of your choice. It will output data to the `Stdout` in wiggle format. You can redirect the output to a file and convert it into a compressed binary file (`BigWig` format) using `wigToBigWig` that can be easily visualized on a genome browser such as IGV.
 
+`halAlignmentDepth` has few options, if you execute it you'll see what these are:
+
+```
+halAlignmentDepth v2.2: Make alignment depth wiggle plot for a genome. By default, 
+                        this is a count of the number of other unique genomes each 
+                        base aligns to, including ancestral genomes.
+
+USAGE:
+halAlignmentDepth [Options] <halPath> <refGenome>
+
+ARGUMENTS:
+halPath:     input hal file
+refGenome:   reference genome to scan
+
+OPTIONS:
+--cacheBytes <value>:       obsolete name for --hdf5CacheBytes [default = 1048576]
+--cacheMDC <value>:         obsolete name for --hdf5CacheMDC  [default = 113]
+--cacheRDC <value>:         obsolete name for --hdf5CacheRDC [default = 521]
+--cacheW0 <value>:          obsolete name for --hdf5CacheW0 [default = 0.75]
+--countDupes:               count each other *position* each base aligns to, rather 
+                            than the number of unique genomes, including paralogies 
+                            so a genome can be counted  multiple times.  This will 
+                            give the height of the MAF column created with hal2maf. 
+                            [default = 0]
+--format <value>:           choose the back-end storage format. [default = hdf5]
+--hdf5CacheBytes <value>:   maximum size in bytes of regular hdf5 cache [default = 
+                            1048576]
+--hdf5CacheMDC <value>:     number of metadata slots in hdf5 cache [default = 113]
+--hdf5CacheRDC <value>:     number of regular slots in hdf5 cache.  should be a prime
+                             number ~= 10 * DefaultCacheRDCBytes / chunk [default = 
+                            521]
+--hdf5CacheW0 <value>:      w0 parameter for hdf5 cache [default = 0.75]
+--hdf5InMemory:             load all data in memory (and disable hdf5 cache) [default
+                             = 0]
+--help:                     display this help page [default = 0]
+--inMemory:                 obsolete name for --hdf5InMemory [default = 0]
+--length <value>:           length of the reference genome (or sequence if specified)
+                             to convert.  If set to 0, the entire thing is converted 
+                            [default = 0]
+--noAncestors:              do not count ancestral genomes. [default = 0]
+--outWiggle <value>:        output wig file (stdout if none) [default = stdout]
+--refSequence <value>:      sequence name to export (all sequences by default) 
+                            [default = ""]
+--rootGenome <value>:       name of root genome (none if empty) [default = ""]
+--start <value>:            coordinate within reference genome (or sequence if 
+                            specified) to start at [default = 0]
+--step <value>:             step size [default = 1]
+--targetGenomes <value>:    comma-separated (no spaces) list of target genomes 
+                            (others are excluded) (vist all if empty) [default = ""]
+```
+
+You gonna be using `--noAncestors`, `--rootGenome` and `--targetGenomes`. Check what these options do.
+
 1. Use the tool to compute the overall coverage using *H. melpomene* (`Hmel`) as a reference
 ```bash
 halAlignmentDepth --noAncestors HelicChr2.hal Hmel > Hmel.Cov.wig

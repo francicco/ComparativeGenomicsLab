@@ -108,7 +108,7 @@ bedtools merge -o first,mean -c 4,5 -d 5 -i HelicChr2.mostcons.bed > HelicChr2.5
 
 - How many regions did you merge?
 
-Now load all the data on IGV and have a look. Do you see any pattern? Any region where you see lesser CEs in H. melpomene?
+Now load all the data on `IGV` and have a look. Do you see any pattern? Any region where you see lesser CEs in *H. melpomene*?
 
 ![Screenshot 2023-03-28 at 12 13 23 PM](https://github.com/user-attachments/assets/7e25c5ec-af96-4912-822b-c95eaec5a13a)
 

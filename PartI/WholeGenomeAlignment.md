@@ -35,6 +35,7 @@ Note: The asteriscs indicate genomes with good contiguity that will be used by *
 I also provide you with a phylogenetic tree `7SpeciesPhylogeny.nex.treefile` (in newick format) and seven fasta files. You can use [`FigTree`](http://tree.bio.ed.ac.uk/software/figtree/) or [`TreeViewer`](https://treeviewer.org/) to have a look at the tree (optional).
 
 ![PhylogenyTutorial](https://github.com/user-attachments/assets/b4b53126-ebc0-4644-b851-ded8718924c1)
+*Figure. Maximum likelihood phylogenetic tree of the seven selected species. Leaf names correspond to species tags that need to be reported in the cactus configuration file/*
 
 Now:
 1. Prepare the config file

@@ -45,8 +45,8 @@ Now:
 
 *Solution:*
 ```bash
-source $HOME/software/.source/cactus-bin-v2.5.1/cactus_env/bin/activate
-cactus jobStore Cactus.Chr2.config Chr2.hal --workDir . --maxMemory 20G --binariesMode local --stats --logFile Cactus.log --maxCores 2 --defaultMemory 5G
+source $PATHto/cactus_env/bin/activate
+cactus jobStore Cactus.Chr2.config Chr2.hal --stats
 ```
 
 

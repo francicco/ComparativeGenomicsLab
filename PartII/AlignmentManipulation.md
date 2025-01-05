@@ -10,11 +10,46 @@ Figure. (A) A single genome as represented in `HAL`. Two sequences are stored in
 
 In this section, you can utilize halSummarizeMutations to extract various useful information, such as mutations (insertions, deletions, inversions, duplications, transpositions, gap insertions, and gap deletions) in each branch of the alignment. The job is a single CPU process and may require ~25 minutes to complete. You can try redirecting the output to a log file and running it in the background using the '&' symbol.
 
-1. What is the predominant mutation occurring at the branch of Heliconius?
+1. What is the predominant mutation occurring at the branch of *Heliconius*?
 2. And how many bases does it involve?
 
-
-Create a folder where to run all the analyses:
+*Solution*
 ```bash
-mkdir -p $DIR && cd $DIR
+halSummarizeMutations HelicChr2.hal [optional --maxNFraction]
 ```
+
+*NOTE:* In `halSummarizeMutations` you can specify `--targetGenomes` or `--rootGenome` option, `--maxNFraction 0` will instead prevent rearrangements with missing data as being identified as such. More generally, if an insertion of length 50 contains c N-characters, it will be labeled as missing data (rather than an insertion) if c/N > maxNFraction.
+
+*Solution 1.* The predominant mutation should be *Insertions*, with over 1.6 Mb.
+
+*NOTE:* This command can take a while, if you don't want to wait there's a hidden file named `.HelicChr2.SummarizeMutations.csv` you can run the `mv` command to make it visible:
+```bash
+mv .HelicChr2.SummarizeMutations.csv HelicChr2.SummarizeMutations.csv
+```
+
+You can also compute the alignment coverage using `halAlignmentDepth`, which returns the number of genomes aligned to a reference species of your choice. It will output data to the `Stdout` in wiggle format. You can redirect the output to a file and convert it into a compressed binary file (`BigWig` format) using `wigToBigWig` that can be easily visualized on a genome browser such as IGV.
+
+1. Use the tool to compute the overall coverage using *H. melpomene* (`Hmel`) as a reference
+```bash
+halAlignmentDepth --noAncestors HelicChr2.hal Hmel > Hmel.Cov.wig
+```
+
+3. convert the wig file into a compress binary
+```bash
+wigToBigWig Hmel.Cov.wig Hmel.Chr2.fasta.fai Hmel.Cov.bw
+```
+
+4. Compute the coverage of only Heliconius species and convert the output
+```bash
+halAlignmentDepth --rootGenome Heliconius --noAncestors HelicChr2.hal Hmel > Hmel.HelOnly.Cov.wig
+wigToBigWig Hmel.HelOnly.Cov.wig Hmel.Chr2.fasta.fai Hmel.HelOnly.Cov.bw
+```
+
+5. Compute the coverage of only non-Heliconius species
+```bash
+halAlignmentDepth --targetGenomes Eisa,Dpha,Smor --noAncestors HelicChr2.hal Hmel > Hmel.NonHelOnly.Cov.wig
+wigToBigWig Hmel.NonHelOnly.Cov.wig Hmel.Chr2.fasta.fai Hmel.NonHelOnly.Cov.bw
+```
+
+6. Now load the file into IGV, can you spot any region of the chromosome that is more specific to Heliconius species?
+   

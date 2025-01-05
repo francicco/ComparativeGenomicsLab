@@ -11,8 +11,7 @@ Below is a breakdown of the required dependencies.
 - [Progressive Cactus](https://github.com/ComparativeGenomicsToolkit/cactus). With it, you should also find precompiled binaries for [Hal Tools](https://github.com/ComparativeGenomicsToolkit/hal).
 - `gffread` from the [Cufflink](http://cole-trapnell-lab.github.io/cufflinks/) package.
 - Phylogenetic Analysis with Space/Time Models ([PHAST](http://compgen.cshl.edu/phast/)) package.
-- [IGV](https://software.broadinstitute.org/software/igv/) or any other genome browser you like, to have a look at all the tracks you will generate
-Make sure you put the newly created ~/bin/$MACHTYPE directory on your path.
+- [IGV](https://software.broadinstitute.org/software/igv/) or any other genome browser you like, to have a look at all the tracks you will generate.
 
 ![Phylogeny](https://github.com/user-attachments/assets/1c6becb6-bd86-4fcf-91e6-ab15b6f078d7)
 Cicconardi F, Milanetti E, Pinheiro de Castro ÉC, Mazo-Vargas A, Van Belleghem SM, Ruggieri AA, Rastas P, Hanly J, Evans E, Jiggins CD, McMillan OW, Papa R, di Marino D, Martin A, Montgomery SH (2023). “[Evolutionary dynamics of genome size and content during the adaptive radiation of Heliconiini butterflies](https://www.nature.com/articles/s41467-023-41412-5)”. Nat. Comm.

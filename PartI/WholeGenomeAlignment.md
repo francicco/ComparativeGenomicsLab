@@ -43,10 +43,12 @@ Now:
 3. Execute *Cactus*
 
 
-
 *Solution:*
 ```bash
 source $HOME/software/.source/cactus-bin-v2.5.1/cactus_env/bin/activate
 cactus jobStore Cactus.Chr2.config Chr2.hal --workDir . --maxMemory 20G --binariesMode local --stats --logFile Cactus.log --maxCores 2 --defaultMemory 5G
 ```
+
+
+Next section: [Part II: HAL tools and Alignment Manipulation](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartII/AlignmentManipulation.md)
 

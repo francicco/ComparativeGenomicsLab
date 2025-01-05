@@ -71,8 +71,6 @@ hal2maf --refGenome Hmel --noAncestors --noDupes HelicChr2.hal HelicChr2.maf
 phyloP --mode CONACC --wig-scores --method LRT neutralModel.4d.mod HelicChr2.maf | sed 's/HelicChr2/Hmel202001o/' > Hmel.CONACC.phyloP.wig
 ```
 
-NOTE: 
-
 ```bash
 wigToBigWig Hmel.CONACC.phyloP.wig Hmel.Chr2.fasta.fai Hmel.CONACC.phyloP.bw
 ```
@@ -81,6 +79,42 @@ You can use `halPhyloPMP.py`, a Python wrapper to leverage parallelisation.
 ```bash
 halPhyloPMP.py --numProc 12 HelicChr2.hal Hmel neutralModel.4d.mod Hmel.phyloP.wig
 ```
+
+In the same fashion we can also generate `PhastCons` scores and the relative CEs using `phastCons`. But before that, instead of a neutral model phastCons needs a model of the "conserved" state and another for "non-conserved" state. The model for conserved regions is optional. If it is not given, then this model is defined indirectly by "scaling" the model for non-conserved regions by a factor called *rho* (see the `--estimate-rho` option in `phastCons`).
+The basic idea of the program is to scan along the alignment for regions that are better "explained" by the conserved model than by the non-conserved model; such regions will be output as CEs, and the probability that each base is in such a region will be output as the conservation score for that base.
+
+8. Compute *rho*
+```bash
+phastCons HelicChr2.maf neutralModel.4d.mod --estimate-rho chr2 --expected-length 12 --target-coverage 0.25 > HelicChr2.phastCons.log
+```
+
+9. Use the two models obtained to generate wiggle file and a bed file for the CEs (hint: use the option --most-conserved).
+```bash
+phastCons --score --most-conserved HelicChr2.mostcons.bed HelicChr2.maf chr2.cons.mod,chr2.noncons.mod | sed 's/HelicChr2/Hmel202001o/' > Chr2.scores.wig
+```
+
+```bash
+sed -i.BK 's/HelicChr2/Hmel202001o/' HelicChr2.mostcons.bed
+```
+
+```bash
+wigToBigWig Chr2.scores.wig Hmel.Chr2.fasta.fai Chr2.scores.bw
+```
+
+These regions can be very close to each other, sometimes the distance is of just a few nucleotides. You can choose to merge these regions, let's say 5nt apart. Since the format of `PhastCons` is a `bed` file check if `bedtools` can be of any help.
+```bash
+bedtools merge -o first,mean -c 4,5 -d 5 -i HelicChr2.mostcons.bed > HelicChr2.5b.Merged.mostcons.bed
+```
+
+- How many regions did you merge?
+
+Now load all the data on IGV and have a look. Do you see any pattern? Any region where you see lesser CEs in H. melpomene?
+
+![Screenshot 2023-03-28 at 12 13 23 PM](https://github.com/user-attachments/assets/7e25c5ec-af96-4912-822b-c95eaec5a13a)
+
+
+
+
 
 
 

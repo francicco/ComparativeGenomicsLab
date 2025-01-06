@@ -204,7 +204,8 @@ for REP in $(seq 1 1000); do
     -g Hmel.Chr2.fasta.fai | bedtools sort -i - > Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed
 
   Nline=`wc -l Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed | cut -f1 -d' '`
-  bedtools intersect -u -wa -a Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed -b HelicChr2.5b.Merged.mostcons.bed | wc -l | awk '{ print "'"$REP"'""\t"$0/"'"$Nline"'"}' >> Overlaps.dat
+  bedtools intersect -u -wa -a Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed -b HelicChr2.5b.Merged.mostcons.bed \
+    | wc -l | awk '{ print "'"$REP"'""\t"$0/"'"$Nline"'"}' >> Overlaps.dat
 done
 ```
 

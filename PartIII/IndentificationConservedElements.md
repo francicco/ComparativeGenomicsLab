@@ -46,18 +46,11 @@ It represents an alignment as a series of blocks, each of which contains one or 
 ```bash
 hal2maf --onlyOrthologs --noDupes --refGenome Hmel --refTargets Hmel.4d.bed HelicChr2.hal HelicChr2.4d.maf
 ```
---
 
 6. Now, using the phylogenetic tree and the extracted regions, build the neutral model using `phyloFit`. We can specify a few options, such as the substitution model. Usually between `REV` and `SSREV` models work well enough.
-(Hint: You can also try the `python` wrapper `halPhyloPTrain.py` which should be faster as parallelize the job).
 ```bash
 phyloFit --tree 7SpeciesPhylogeny.nex.treefile --subst-mod SSREV --sym-freqs --out-root neutralModel.4d HelicChr2.4d.maf
 ```
-
-```bash
-halPhyloPTrain.py --substMod REV --noAncestors HelicChr2.hal Hmel Hmel.4d.bed neutralModel.mod --numProc 10
-```
-
 
 7. Finally using the neutral model, we can run `phyloP` on the whole alignment converted in `MAF` format. We can select whichever reference genome; internal branches are also accepted. Here you can use *H. melpomene* or *H. erato*.
 Remember, you can compress the output converting the `wig` file into a `bigwig`.

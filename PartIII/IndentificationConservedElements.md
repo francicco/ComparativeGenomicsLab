@@ -71,7 +71,8 @@ You can tell the model was done using nucleotides (`ALPHABET: A C G T `), with a
 
 
 And this is the original tree:
-<img width="1353" alt="OriginalTree" src="https://github.com/user-attachments/assets/bc2527ea-a6b1-4554-a625-aef77ea734eb" />
+<img width="1355" alt="OriginalTree" src="https://github.com/user-attachments/assets/365b2573-bbde-4b66-8ec7-d126475f3750" />
+
 
 
 7. Finally using the neutral model, we can run `phyloP` on the whole alignment converted in `MAF` format. We can select whichever reference genome; internal branches are also accepted. Here you can use *H. melpomene* or *H. erato*.

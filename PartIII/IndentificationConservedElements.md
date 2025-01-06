@@ -214,16 +214,18 @@ done
 You can run this script in R to plot the data and compute the binomial test
 ```Rscript
 # Load the file
-FracOvl <- read.table("~/Documents/GenomicWorkshopData/Overlaps.dat", header=FALSE, sep="\t")
+FracOvl <- read.table("Overlaps.dat", header=TRUE, sep="\t")
+
+head(FracOvl)
 
 # Statistics on the distribution
-summary(FracOvl$V2)
+summary(FracOvl$OvlFrac)
 
 
 # Calculate median and density
-median <- summary(FracOvl$V2)[[3]]
-density_default <- density(FracOvl$V2, adjust = 0.1)
-density_smoothed <- density(FracOvl$V2, adjust = 2)
+median <- summary(FracOvl$OvlFrac)[[3]]
+density_default <- density(FracOvl$OvlFrac, adjust = 0.1)
+density_smoothed <- density(FracOvl$OvlFrac, adjust = 2)
 
 # Perform binomial test
 x <- 871
@@ -237,7 +239,7 @@ x_range <- c(x_range[1], obsfreq) # Extend the range by 1 on both sides
 
 
 # Save the plot to a file
-png("~/Documents/GenomicWorkshopData/density_plot.png", width = 1200, height = 800)
+png("density_plot.png", width = 1200, height = 800)
 
 # Create plot
 plot(
@@ -265,7 +267,8 @@ dev.off()
 ```
 
 You should get a plot similar to this:
-![density_plot](https://github.com/user-attachments/assets/95dc5640-a51e-494a-834a-c1747322c2a6)
+![density_plot](https://github.com/user-attachments/assets/3ea6adfe-ecb1-456d-890e-95b59d6c0f61)
+
 
 
 

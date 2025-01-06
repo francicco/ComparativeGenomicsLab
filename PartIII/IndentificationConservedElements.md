@@ -65,9 +65,9 @@ RATE_MAT:
    0.316385    0.471585    0.165022   -0.952993 
 TREE: ((Smor:0.531082,(((Hdor:0.119252,Hmel:0.111786):0.049647,(Herd:0.0679488,Hcha:0.0799231):0.0520345):0.105919,Eisa:0.199437):0.138494):0.137492,Dpha:0.137492);
 ```
-You can tell the model was done using nucleotides (`ALPHABET: A C G T `), with a substitution model `REV`, the likelihood of the training: `-862084.094730` , the rate matrix (`RATE_MAT`), and finally an adjusted phylogenetic tree with modified branch length
+You can tell the model was done using nucleotides (`ALPHABET: A C G T `), with a substitution model `REV`, the likelihood of the training: `-862084.094730` , the rate matrix (`RATE_MAT`), and finally an adjusted phylogenetic tree with modified branch lengths.
 <img width="1333" alt="ModelTree" src="https://github.com/user-attachments/assets/087aff22-1e9e-4405-9bed-0997d1c53df2" />
-s.
+
 
 
 And this is the original tree:

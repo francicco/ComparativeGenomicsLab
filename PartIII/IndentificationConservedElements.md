@@ -210,11 +210,11 @@ done
 ```
 
 ```Rscript
-FracOvl <- read.table("Overlaps.dat", header=TRUE, sep="\t")
-summary(FracOvl$FracOvl)
+FracOvl <- read.table("Overlaps.dat", header=FALSE, sep="\t")
+summary(FracOvl$V2)
 
-plot(density(FracOvl$FracOvl, adjust = 0.1))
-lines(density(FracOvl$FracOvl, adjust = 2, add = TRUE), col = 'green')
+plot(density(FracOvl$V2, adjust = 0.1))
+lines(density(FracOvl$V2, adjust = 2, add = TRUE), col = 'green')
 
 x <- 871
 n <- 1292

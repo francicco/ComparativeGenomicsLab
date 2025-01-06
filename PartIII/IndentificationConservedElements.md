@@ -75,11 +75,6 @@ phyloP --mode CONACC --wig-scores --method LRT neutralModel.4d.mod HelicChr2.maf
 wigToBigWig Hmel.CONACC.phyloP.wig Hmel.Chr2.fasta.fai Hmel.CONACC.phyloP.bw
 ```
 
-You can use `halPhyloPMP.py`, a Python wrapper to leverage parallelisation.
-```bash
-halPhyloPMP.py --numProc 12 HelicChr2.hal Hmel neutralModel.4d.mod Hmel.phyloP.wig
-```
-
 In the same fashion we can also generate `PhastCons` scores and the relative CEs using `phastCons`. But before that, instead of a neutral model phastCons needs a model of the "conserved" state and another for "non-conserved" state. The model for conserved regions is optional. If it is not given, then this model is defined indirectly by "scaling" the model for non-conserved regions by a factor called *rho* (see the `--estimate-rho` option in `phastCons`).
 The basic idea of the program is to scan along the alignment for regions that are better "explained" by the conserved model than by the non-conserved model; such regions will be output as CEs, and the probability that each base is in such a region will be output as the conservation score for that base.
 

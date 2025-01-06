@@ -200,7 +200,7 @@ mkdir Permutation
 
 for REP in $(seq 1 1000); do
   echo -e "Rep: $REP"
-  bedtools shuffle -excl Hmel.GeneRegions.bed -chrom -chromFirst -noOverlapping -i Hmel.Chr2.ATACpeaks.InterGenic.bed \
+  bedtools shuffle -excl Hmel.CDS.bed -chrom -chromFirst -noOverlapping -i Hmel.Chr2.ATACpeaks.InterGenic.bed \
     -g Hmel.Chr2.fasta.fai | bedtools sort -i - > Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed
 
   Nline=`wc -l Permutation/Hmel.Chr2.ATACpeaks.ReShuf.$REP.bed | cut -f1 -d' '`

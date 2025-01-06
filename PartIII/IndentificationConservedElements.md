@@ -267,7 +267,8 @@ dev.off()
 ```
 
 You should get a plot similar to this:
-![density_plot](https://github.com/user-attachments/assets/3ea6adfe-ecb1-456d-890e-95b59d6c0f61)
+![density_plot](https://github.com/user-attachments/assets/ed217100-4b0e-420a-a1dc-96f0d7a79629)
+
 
 
 

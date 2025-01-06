@@ -175,7 +175,7 @@ bedtools intersect -u -wb -a Hmel.Chr2.ATACpeaks.InterGenic.bed -b HelicChr2.5b.
 
 - What is their proportion?
 ```
-Of the ~1292 intergenic ATAC peaks ~871 overlap with CEs, the ~67%
+Of the 1292 intergenic ATAC peaks 871 overlap with CEs, the ~67%
 ```
 
 ________________________________________________________________________________________________________________________________________________________________________________

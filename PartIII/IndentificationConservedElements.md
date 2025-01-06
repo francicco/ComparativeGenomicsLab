@@ -49,7 +49,7 @@ hal2maf --onlyOrthologs --noDupes --refGenome Hmel --refTargets Hmel.4d.bed Heli
 
 6. Now, using the phylogenetic tree and the extracted regions, build the neutral model using `phyloFit`. We can specify a few options, such as the substitution model. Usually between `REV` and `SSREV` models work well enough.
 ```bash
-phyloFit --tree 7SpeciesPhylogeny.nex.treefile --subst-mod SSREV --sym-freqs --out-root neutralModel.4d HelicChr2.4d.maf
+phyloFit --tree 7SpeciesPhylogeny.nex.treefile --subst-mod REV --sym-freqs --out-root neutralModel.4d HelicChr2.4d.maf
 ```
 
 7. Finally using the neutral model, we can run `phyloP` on the whole alignment converted in `MAF` format. We can select whichever reference genome; internal branches are also accepted. Here you can use *H. melpomene* or *H. erato*.

@@ -198,6 +198,8 @@ You could perform a permutation test by reshuffling the ATAC peaks *n* times to 
 ```bash
 mkdir Permutation
 
+echo -e "Perm\tOvlFrac" > Overlaps.dat
+
 for REP in $(seq 1 1000); do
   echo -e "Rep: $REP"
   bedtools shuffle -excl Hmel.CDS.bed -chrom -chromFirst -noOverlapping -i Hmel.Chr2.ATACpeaks.InterGenic.bed \
@@ -209,20 +211,62 @@ for REP in $(seq 1 1000); do
 done
 ```
 
+You can run this script in R to plot the data and compute the binomial test
 ```Rscript
-FracOvl <- read.table("Overlaps.dat", header=FALSE, sep="\t")
+# Load the file
+FracOvl <- read.table("~/Documents/GenomicWorkshopData/Overlaps.dat", header=FALSE, sep="\t")
+
+# Statistics on the distribution
 summary(FracOvl$V2)
 
-plot(density(FracOvl$V2, adjust = 0.1))
-lines(density(FracOvl$V2, adjust = 2, add = TRUE), col = 'green')
 
+# Calculate median and density
+median <- summary(FracOvl$V2)[[3]]
+density_default <- density(FracOvl$V2, adjust = 0.1)
+density_smoothed <- density(FracOvl$V2, adjust = 2)
+
+# Perform binomial test
 x <- 871
 n <- 1292
-binom.test(x, n, p=0.5381)
+obsfreq <- 871/1292
+binom_res <- binom.test(x, n, p = median)
+
+# Extend x-axis range
+x_range <- range(c(density_default$x, density_smoothed$x)) # Find the range of x-values
+x_range <- c(x_range[1], obsfreq) # Extend the range by 1 on both sides
+
+
+# Save the plot to a file
+png("~/Documents/GenomicWorkshopData/density_plot.png", width = 1200, height = 800)
+
+# Create plot
+plot(
+  density_default, 
+  main = "Density Plot with Smoothed Curve", 
+  xlab = "Values", 
+  ylab = "Density", 
+  col = "blue", 
+  lwd = 2,
+  xlim = x_range # Extended x-axis range
+)
+lines(density_smoothed, col = "green", lwd = 2)
+abline(v = median, col = "red", lty = 2, lwd = 2)
+abline(v = obsfreq, col = "green", lty = 2, lwd = 2)
+legend(
+  "topright", 
+  legend = c("Default Density (adjust = 0.1)", "Smoothed Density (adjust = 2)", "Expected freq.", "Observed freq."), 
+  col = c("blue", "green", "red","green"), 
+  lwd = 2, 
+  lty = c(1, 1, 2, 2)
+)
+
+# Close the device
+dev.off()
 ```
 
 You should get a plot similar to this:
-<img width="1251" alt="ExpectedDist" src="https://github.com/user-attachments/assets/07e0d7dc-b972-4084-b302-03635956a53b" />
+![density_plot](https://github.com/user-attachments/assets/95dc5640-a51e-494a-834a-c1747322c2a6)
+
 
 
 ________________________________________________________________________________________________________________________________________________________________________________

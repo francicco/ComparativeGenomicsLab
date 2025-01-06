@@ -51,6 +51,26 @@ hal2maf --onlyOrthologs --noDupes --refGenome Hmel --refTargets Hmel.4d.bed Heli
 ```bash
 phyloFit --tree 7SpeciesPhylogeny.nex.treefile --subst-mod REV --sym-freqs --out-root neutralModel.4d HelicChr2.4d.maf
 ```
+Have a look at the model:
+```
+ALPHABET: A C G T 
+ORDER: 0
+SUBST_MOD: REV
+TRAINING_LNL: -862084.094730
+BACKGROUND: 0.273505 0.226495 0.226495 0.273505 
+RATE_MAT:
+  -0.959160    0.165999    0.476776    0.316385 
+   0.200452   -1.050496    0.280580    0.569464 
+   0.575732    0.280580   -1.055584    0.199273 
+   0.316385    0.471585    0.165022   -0.952993 
+TREE: ((Smor:0.531082,(((Hdor:0.119252,Hmel:0.111786):0.049647,(Herd:0.0679488,Hcha:0.0799231):0.0520345):0.105919,Eisa:0.199437):0.138494):0.137492,Dpha:0.137492);
+```
+You can tell the model was done using nucleotides (`ALPHABET: A C G T `), with a substitution model `REV`, the likelihood of the training: `-862084.094730` , the rate matrix (`RATE_MAT`), and finally an adjusted phylogenetic tree with modified branch lengths.
+<img width="1334" alt="ModelTree" src="https://github.com/user-attachments/assets/baf76ed5-b6f7-41e7-aa3d-a488b0f93d5e" />
+
+And this is the original tree:
+<img width="1353" alt="OriginalTree" src="https://github.com/user-attachments/assets/bc2527ea-a6b1-4554-a625-aef77ea734eb" />
+
 
 7. Finally using the neutral model, we can run `phyloP` on the whole alignment converted in `MAF` format. We can select whichever reference genome; internal branches are also accepted. Here you can use *H. melpomene* or *H. erato*.
 Remember, you can compress the output converting the `wig` file into a `bigwig`.

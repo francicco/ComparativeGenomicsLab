@@ -129,7 +129,7 @@ wc -l HelicChr2.5b.Merged.mostcons.bed
 bc <<< 16236-15980
 ```
 
-Now load all the generated data (`Chr2.PhastConsScores.bw`|`Hmel.phyloP.wig`|`HelicChr2.5b.Merged.mostcons.bed` ) on `IGV` and have a look. Do you see any pattern? Any region where you see lesser CEs in *H. melpomene*?
+Now load all the generated data (`Chr2.PhastConsScores.bw`|`Hmel.CONACC.phyloP.wig`|`HelicChr2.5b.Merged.mostcons.bed` ) on `IGV` and have a look. Do you see any pattern? Any region where you see lesser CEs in *H. melpomene*?
 
 ![Screenshot 2023-03-28 at 12 13 23 PM](https://github.com/user-attachments/assets/7e25c5ec-af96-4912-822b-c95eaec5a13a)
 
@@ -212,7 +212,8 @@ for REP in $(seq 1 1000); do
 done
 ```
 
-You can run this script in R to plot the data and compute the binomial test
+You can run this script in R to plot the data and compute the binomial test.
+HINT: Don't forget to se the working directory or correct the path for I/O files
 ```Rscript
 # Load the file
 FracOvl <- read.table("Overlaps.dat", header=TRUE, sep="\t")

@@ -1,4 +1,4 @@
-# Comparative Genomics Lab - Workshop on Genomics, Cesky Krumlov
+# Comparative Genomics Lab - Workshop on Genomics, Cesky Krumlov 2025
 
 ## Class Overview
 In this part of the workshop, we will focus on certain aspects of comparative genomics. Specifically, our attention will be directed toward whole genome alignment (WGA) as a tool for investigating the changes occurring in different regions of the genome that interest us. Additionally, we will explore identifying potential regulatory elements in intergenic regions. All of this will be done in the context of the radiation of the neotropical *Heliconius* butterflies.
@@ -23,6 +23,7 @@ The tutorial is divided into three sections
 2. [Part II: HAL tools and Alignment Manipulation](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartII/AlignmentManipulation.md)
 3. [Part III: Identification of Conserved Regions](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartIII/IndentificationConservedElements.md)
 
-## All data is available at this [link](https://uob-my.sharepoint.com/:f:/g/personal/tk19812_bristol_ac_uk/El4csr5H5jpHvVBhL3OVNZIB63COCfld3kpyB3FHzeAR_g?e=eAf5d3).
+## All data is available /home/genomics/workshop_materials/ComparativeGenomicsLab/data
+Otherwise, you can download it at this [link](https://uob-my.sharepoint.com/:f:/g/personal/tk19812_bristol_ac_uk/El4csr5H5jpHvVBhL3OVNZIB63COCfld3kpyB3FHzeAR_g?e=eAf5d3).
 
 ## I hope this will be useful, Have fun!

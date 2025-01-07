@@ -1,4 +1,4 @@
-# Comparative Genomics Lab - Workshop on Genomics, Cesky Krumlov 2025
+# [Comparative Genomics Lab - Workshop on Genomics, Cesky Krumlov 2025](https://evomics.org/2025-workshop-on-genomics/)
 
 ## Class Overview
 In this part of the workshop, we will focus on certain aspects of comparative genomics. Specifically, our attention will be directed toward whole genome alignment (WGA) as a tool for investigating the changes occurring in different regions of the genome that interest us. Additionally, we will explore identifying potential regulatory elements in intergenic regions. All of this will be done in the context of the radiation of the neotropical *Heliconius* butterflies.

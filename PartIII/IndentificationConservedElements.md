@@ -135,7 +135,7 @@ Now load all the generated data (`Chr2.PhastConsScores.bw`|`Hmel.phyloP.wig`|`He
 
 
 
-# Part IIIc: ATAC peak enrichment
+# Part IIIb: ATAC peak enrichment
 If you examine the chromosome closely, you will notice that there is a significant amount of overlap between the conserved elements (CEs), phastCons scores, and PhyloP scores with coding regions. This is expected since coding exons are typically the most conserved regions of the genome. However, upon closer inspection, you will also find CEs within intergenic and intronic regions. In this particular case, these CEs span approximately 40 million years within the phylogenetic framework. It is important to note that most of these intergenic regions do not possess a valid open reading frame (ORF). Currently, it is unknown whether these regions represent functional elements such as enhancers or promoters. However, we can perform an assay for transposase-accessible chromatin (ATAC) to investigate whether there is an enrichment of chromatin accessibility with CEs. Indicating possible role as *cis*-regulatory elements (CREs).
 important "switches" or "control switches" that influence when and how genes are turned on or off and, therefore expressed.
 

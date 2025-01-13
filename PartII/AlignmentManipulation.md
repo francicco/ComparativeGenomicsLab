@@ -89,7 +89,7 @@ You gonna be using `--noAncestors`, `--rootGenome` and `--targetGenomes`. Check 
 halAlignmentDepth --noAncestors HelicChr2.hal Hmel > Hmel.Cov.wig
 ```
 
-3. convert the wig file into a compress binary
+3. convert the wig file into a compress binary using `wigToBigWig`.
 ```bash
 wigToBigWig Hmel.Cov.wig Hmel.Chr2.fasta.fai Hmel.Cov.bw
 ```

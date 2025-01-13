@@ -8,7 +8,7 @@ A `HAL` can represent a complete tree of genomes, including their sequence data,
 ![bioinformatics_29_10_1341_f2](https://github.com/user-attachments/assets/1b64dec2-a786-4a46-9347-94bca92eecd3)
 Figure. (A) A single genome as represented in `HAL`. Two sequences are stored in an array of DNA characters and are segmented with respect to its parent (top segments) and children (bottom segments). (B) The same genome in the context of HAL graph of five genomes. The dashed edge corresponds to an inversion event. Hickey G, Paten B, Earl D, Zerbino D, Haussler D (2013). [HAL: a hierarchical format for storing and analyzing multiple genome alignments](https://academic.oup.com/bioinformatics/article/29/10/1341/256598). Bioinformatics
 
-In this section, you can utilize halSummarizeMutations to extract various useful information, such as mutations (insertions, deletions, inversions, duplications, transpositions, gap insertions, and gap deletions) in each branch of the alignment. The job is a single CPU process and may require ~25 minutes to complete. You can try redirecting the output to a log file and running it in the background using the '&' symbol.
+In this section, you can utilize halSummarizeMutations to extract various useful information, such as mutations (insertions, deletions, inversions, duplications, transpositions, gap insertions, and gap deletions) in each branch of the alignment. The job is a single CPU process and may require ~15 minutes to complete. You can try redirecting the output to a log file and running it in the background using the '&' symbol.
 
 *Solution*
 ```bash

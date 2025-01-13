@@ -104,6 +104,13 @@ phastCons HelicChr2.maf neutralModel.4d.mod --estimate-rho chr2 --expected-lengt
 phastCons --score --most-conserved HelicChr2.mostcons.bed HelicChr2.maf chr2.cons.mod,chr2.noncons.mod | sed 's/HelicChr2/Hmel202001o/' > Chr2.PhastConsScores.wig
 ```
 
+`phastCons` will estimates the maximum likelihood estimates (MLEs) for two parameters (mu, nu):
+•	mu is the probability of transitioning from the non-conserved state to the conserved state.
+•	nu is instead the probability of transitioning from the conserved state to the non-conserved state.
+
+These parameters determine how frequently PhastCons predicts switches between conserved and non-conserved regions.
+
+
 ```bash
 sed -i.BK 's/HelicChr2/Hmel202001o/' HelicChr2.mostcons.bed
 ```

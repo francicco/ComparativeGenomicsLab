@@ -130,7 +130,7 @@ bedtools merge -o first,mean -c 4,5 -d 5 -i HelicChr2.mostcons.bed > HelicChr2.5
 
 ```bash
 wc -l HelicChr2.mostcons.bed
-16236 HelicChr2.mostcons.bed
+16234 HelicChr2.mostcons.bed
 
 wc -l HelicChr2.5b.Merged.mostcons.bed
 15980 HelicChr2.5b.Merged.mostcons.bed

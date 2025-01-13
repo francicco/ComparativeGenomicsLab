@@ -18,10 +18,11 @@ halSummarizeMutations HelicChr2.hal [optional --maxNFraction]
 
 Once the analysis is done can you assess:
 
-1. What is the predominant mutation occurring at the branch of *Heliconius*?
-2. And how many bases does it involve?
+1. What predominant mutation occurs at the branch of *Heliconius*?
+2. And how many bases and how many events does it involve?
 
-*Solution 1.* The predominant mutation should be *Insertions*, with over 1.6 Mb.
+*Solution 1.* The predominant mutation, in terms of bases, should be *Insertions*, with over 1.6 Mb, with ~9 thousand events. 
+.
 
 *NOTE:* This command can take a while, if you don't want to wait there's a hidden file named `.HelicChr2.SummarizeMutations.csv` you can run the `mv` command to make it visible:
 ```bash

@@ -10,15 +10,16 @@ Figure. (A) A single genome as represented in `HAL`. Two sequences are stored in
 
 In this section, you can utilize halSummarizeMutations to extract various useful information, such as mutations (insertions, deletions, inversions, duplications, transpositions, gap insertions, and gap deletions) in each branch of the alignment. The job is a single CPU process and may require ~25 minutes to complete. You can try redirecting the output to a log file and running it in the background using the '&' symbol.
 
-1. What is the predominant mutation occurring at the branch of *Heliconius*?
-2. And how many bases does it involve?
-
 *Solution*
 ```bash
 halSummarizeMutations HelicChr2.hal [optional --maxNFraction]
 ```
-
 *NOTE:* In `halSummarizeMutations` you can specify `--targetGenomes` or `--rootGenome` option, `--maxNFraction 0` will instead prevent rearrangements with missing data as being identified as such. More generally, if an insertion of length 50 contains c N-characters, it will be labeled as missing data (rather than an insertion) if c/N > maxNFraction.
+
+Once the analysis is done can you assess:
+
+1. What is the predominant mutation occurring at the branch of *Heliconius*?
+2. And how many bases does it involve?
 
 *Solution 1.* The predominant mutation should be *Insertions*, with over 1.6 Mb.
 

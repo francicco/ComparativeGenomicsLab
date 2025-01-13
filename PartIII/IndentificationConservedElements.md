@@ -105,7 +105,9 @@ phastCons --score --most-conserved HelicChr2.mostcons.bed HelicChr2.maf chr2.con
 ```
 
 `phastCons` will estimates the maximum likelihood estimates (MLEs) for two parameters (mu, nu):
+
 •	mu is the probability of transitioning from the non-conserved state to the conserved state.
+
 •	nu is instead the probability of transitioning from the conserved state to the non-conserved state.
 
 These parameters determine how frequently PhastCons predicts switches between conserved and non-conserved regions.

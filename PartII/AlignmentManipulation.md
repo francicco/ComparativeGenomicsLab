@@ -94,7 +94,7 @@ halAlignmentDepth --noAncestors HelicChr2.hal Hmel > Hmel.Cov.wig
 wigToBigWig Hmel.Cov.wig Hmel.Chr2.fasta.fai Hmel.Cov.bw
 ```
 
-NOTE: You may have notice that `wigToBigWig` requires the fasta index file. This file is a tab-delimited file which contains information of the fasta file, such as the lengths of sequences. You can easily generate it with `samtools`
+*NOTE:* You may have notice that `wigToBigWig` requires the fasta index file. This file is a tab-delimited file which contains information of the fasta file, such as the lengths of sequences. You can easily generate it with `samtools`
 ```bash
 samtools faidx Hmel.Chr2.fasta
 ```
@@ -111,7 +111,8 @@ halAlignmentDepth --targetGenomes Eisa,Dpha,Smor --noAncestors HelicChr2.hal Hme
 wigToBigWig Hmel.NonHelOnly.Cov.wig Hmel.Chr2.fasta.fai Hmel.NonHelOnly.Cov.bw
 ```
 
-6. Now load the file into IGV, can you spot any region of the chromosome that is more specific to Heliconius species?
+6. Now load the files (`Hmel.Cov.bw`, `Hmel.HelOnly.Cov.bw`, `Hmel.NonHelOnly.Cov.bw`) into IGV, can you spot any region of the chromosome that is more specific to Heliconius species?
+ *NOTE:* To load data in IGV you need the genome in fasta format (what is our genome?) and its index.
    
 ________________________________________________________________________________________________________________________________________________________________________________
 Previous section: [Part I: Whole Genome Alignment](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartI/WholeGenomeAlignment.md)

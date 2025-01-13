@@ -135,7 +135,7 @@ wc -l HelicChr2.mostcons.bed
 wc -l HelicChr2.5b.Merged.mostcons.bed
 15980 HelicChr2.5b.Merged.mostcons.bed
 
-bc <<< 16236-15980
+bc <<< 16234-15980
 ```
 
 Now load all the generated data (`Chr2.PhastConsScores.bw`|`Hmel.CONACC.phyloP.wig`|`HelicChr2.5b.Merged.mostcons.bed` ) on `IGV` and have a look. Do you see any pattern? Any region where you see lesser CEs in *H. melpomene*?

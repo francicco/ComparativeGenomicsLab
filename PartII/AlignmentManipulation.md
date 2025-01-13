@@ -112,7 +112,8 @@ wigToBigWig Hmel.NonHelOnly.Cov.wig Hmel.Chr2.fasta.fai Hmel.NonHelOnly.Cov.bw
 ```
 
 6. Now load the files (`Hmel.Cov.bw`, `Hmel.HelOnly.Cov.bw`, `Hmel.NonHelOnly.Cov.bw`) into IGV, can you spot any region of the chromosome that is more specific to Heliconius species?
- *NOTE:* To load data in IGV you need the genome in fasta format (what is our genome?) and its index.
+
+*NOTE:* To load data in IGV you need the genome in fasta format (what is our genome?) and its index.
    
 ________________________________________________________________________________________________________________________________________________________________________________
 Previous section: [Part I: Whole Genome Alignment](https://github.com/francicco/ComparativeGenomicsLab/blob/main/PartI/WholeGenomeAlignment.md)

@@ -20,7 +20,7 @@ nameN pathN
 *NOTE:* You can use a simple text editor and `pwd` or `realpath <filename>` to figure out the paths of fasta files.
 
 The phylogenetic trees is:
-`(((((Hdor:0.046880375500000016,Hmel:0.03339806060000003)DorisMelpomene:0.008997160799999987,(Herd:0.03979099250000001,Hcha:0.023248447800000002)SaraSaphoErato:0.013836658700000004)Heliconius:0.03499185399999999,Eisa:0.0829271553)HeliconiusEueides:0.05016774060000001,Dpha:0.10553318310000001)Helicnoniini:0.1166187113,Smor:0.1166187113)Helicnoniinae;`
+```(((((Hdor:0.046880375500000016,Hmel:0.03339806060000003)DorisMelpomene:0.008997160799999987,(Herd:0.03979099250000001,Hcha:0.023248447800000002)SaraSaphoErato:0.013836658700000004)Heliconius:0.03499185399999999,Eisa:0.0829271553)HeliconiusEueides:0.05016774060000001,Dpha:0.10553318310000001)Helicnoniini:0.1166187113,Smor:0.1166187113)Helicnoniinae;```
 
 This is an example that you can find in the *Cactus* repository for some primate species
 ```

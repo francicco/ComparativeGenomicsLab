@@ -17,6 +17,8 @@ name2 path2
 ...
 nameN pathN
 ```
+*NOTE:* You can use a simple text editor.
+
 
 This is an example that you can find in the *Cactus* repository for some primate species
 ```

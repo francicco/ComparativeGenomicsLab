@@ -45,7 +45,7 @@ Now:
 
 *Solution:*
 ```bash
-source $PATHto/cactus_env/bin/activate
+# source ~/software/.source/cactus/cactus_env/bin/activate # use source if your cactus is not in your $PATH already
 cactus jobStore Cactus.Chr2.config Chr2.hal --stats
 ```
 
